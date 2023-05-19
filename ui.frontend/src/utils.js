@@ -263,6 +263,12 @@ export default class Utils {
                     _path,
                     _element: elements[i]
                 });
+
+                 if(_formJson.lang) {
+                                    const localeObj = new Intl.Locale(_formJson.lang);
+                                    document.getElementsByTagName("body")[0].dir = localeObj.textInfo.direction;
+                                    }
+
                 const event = new CustomEvent(Constants.FORM_CONTAINER_INITIALISED, { "detail": formContainer });
                 document.dispatchEvent(event);
             }

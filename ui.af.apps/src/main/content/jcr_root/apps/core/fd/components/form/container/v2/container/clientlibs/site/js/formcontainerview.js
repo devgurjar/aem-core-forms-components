@@ -74,6 +74,7 @@
         }
         function onInit(e) {
             let formContainer =  e.detail;
+//
             let formEl = formContainer.getFormElement();
             setTimeout(() => {
                 formEl.classList.remove(FormContainerV2.loadingClass);
