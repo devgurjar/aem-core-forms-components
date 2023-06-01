@@ -41,24 +41,33 @@
                 let body = action.payload?.body;
                 if (body) {
                     if (body.redirectUrl) {
-                     var guideContainer = window.document.getElementsByClassName("cmp-adaptiveform-container");
-                     guideContainer[0].getElementsByClassName("guideLoading")[0].style.display = "none";
-                        let formContainerElement = document.querySelector("[data-cmp-path='"+ self._path +"']");
-                        let thankYouMessage = document.createElement("div");
-                        thankYouMessage.setAttribute("class", "tyMessage");
-                        thankYouMessage.innerHTML = 'Thank for submission';
-                        formContainerElement.replaceWith(thankYouMessage);
+////                     var guideContainer = window.document.getElementsByClassName("cmp-adaptiveform-container");
+////                     guideContainer[0].getElementsByClassName("guideLoading")[0].style.display = "none";
+//                        let formContainerElement = document.querySelector("[data-cmp-path='"+ self._path +"']");
+//                        let thankYouMessage = document.createElement("div");
+//                        thankYouMessage.setAttribute("class", "tyMessage");
+//                        thankYouMessage.innerHTML = 'Thank for submission';
+//                        formContainerElement.replaceWith(thankYouMessage);
+//
+//
+//                        let redirectURL = body.redirectUrl;
+//                        let redirectElement = document.querySelector('[name=":redirect"]');
+//                        // check to prevent tampering of redirectURL from client
+//                        if(redirectElement && redirectElement.value === body.redirectUrl) {
+//                            redirectURL = body.redirectUrl;
+//                        }
+//                        setTimeout(()=>{
+//                            window.location.href = redirectURL;
+//                        }, 1000);
 
-
+                       // let redirectURL = self._path + '.guideThankYouPage.html';  //default ThankYouPage Path
                         let redirectURL = body.redirectUrl;
                         let redirectElement = document.querySelector('[name=":redirect"]');
                         // check to prevent tampering of redirectURL from client
                         if(redirectElement && redirectElement.value === body.redirectUrl) {
                             redirectURL = body.redirectUrl;
                         }
-                        setTimeout(()=>{
-                            window.location.href = redirectURL;
-                        }, 1000);
+                        window.location.href = redirectURL;
                     } else if (body.thankYouMessage) {
                         let formContainerElement = document.querySelector("[data-cmp-path='"+ self._path +"']");
                         let thankYouMessage = document.createElement("div");
